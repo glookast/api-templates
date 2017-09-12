@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:base="http://base.commons.glookast.com"
+               xmlns:tmpl="http://templates.commons.glookast.com"
+               jaxb:extensionBindingPrefixes="xjc"
+               jaxb:version="2.1">
+    <jaxb:bindings schemaLocation="../../../generated/main/resources/com/glookast/commons/templates/templates.xsd">
+        <jaxb:globalBindings>
+            <xjc:javaType name="java.util.Calendar" xmlType="xs:dateTime" adapter="com.glookast.commons.xml.XmlAdapterCalendar" />
+            <xjc:javaType name="java.util.Calendar" xmlType="xs:date" adapter="com.glookast.commons.xml.XmlAdapterCalendar" />
+            <xjc:javaType name="java.util.Calendar" xmlType="xs:time" adapter="com.glookast.commons.xml.XmlAdapterCalendar" />
+            <xjc:javaType name="java.util.Calendar" xmlType="xs:gYear" adapter="com.glookast.commons.xml.XmlAdapterCalendar" />
+            <xjc:javaType name="java.util.UUID" xmlType="base:UUID" adapter="com.glookast.commons.xml.XmlAdapterUUID" />
+            <xjc:serializable />
+        </jaxb:globalBindings>
+    </jaxb:bindings>
+    <jaxb:bindings scd="x-schema::base" xmlns:tns="http://base.commons.glookast.com">
+        <jaxb:schemaBindings map="false"/>
+        <jaxb:bindings scd="~base:PropertyList">
+            <jaxb:class ref="com.glookast.commons.base.PropertyList"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~base:Rational">
+            <jaxb:class ref="com.glookast.commons.base.Rational"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings scd="x-schema::tmpl" xmlns:tns="http://base.templates.glookast.com">
+        <jaxb:schemaBindings map="false"/>
+        <jaxb:bindings scd="~tmpl:AudioFormat">
+            <jaxb:class ref="com.glookast.commons.templates.AudioFormat"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidAafExportMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidAafExportMetadataSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidInterplayMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidInterplayMetadataSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidMediaNetworkStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidMediaNetworkStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidNexusStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidNexusStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidOtherStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidOtherStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:ContainerFormat">
+            <jaxb:class ref="com.glookast.commons.templates.ContainerFormat"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:GenericStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.GenericStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:MetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.MetadataSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:OutputSystem">
+            <jaxb:class ref="com.glookast.commons.templates.OutputSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:StorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.StorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:SystemType">
+            <jaxb:class ref="com.glookast.commons.templates.SystemType"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:Template">
+            <jaxb:class ref="com.glookast.commons.templates.Template"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:TransformProfile">
+            <jaxb:class ref="com.glookast.commons.templates.TransformProfile"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:VideoFormat">
+            <jaxb:class ref="com.glookast.commons.templates.VideoFormat"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:XmlExportMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.XmlExportMetadataSystem"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

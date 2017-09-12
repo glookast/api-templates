@@ -1,0 +1,153 @@
+apply plugin: "java"
+apply plugin: "maven"
+apply plugin: "signing"
+
+group = "com.glookast.api"
+version = "1.1.0"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+jar {
+    manifest {
+        attributes "Implementation-Version": version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    jaxws
+    schemas
+}
+
+dependencies {
+    jaxws "com.sun.xml.ws:jaxws-tools:2.2.10"
+    jaxws "org.jvnet.jaxb2_commons:jaxb2-value-constructor:3.0"
+    schemas "com.glookast.api:api-templates-schemas:1.1.0"
+    runtime "com.glookast.api:api-templates-schemas:1.1.0"
+    compile "com.glookast.commons:commons-base:1.0.0"
+    compile "com.glookast.commons:commons-xml:1.0.0"
+    compile "com.glookast.commons:commons-templates:1.1.0"
+}
+
+def generatedSrcDir = file("generated/main/java")
+def generatedResourcesDir = file("generated/main/resources")
+
+sourceSets.main.java.srcDirs generatedSrcDir
+
+def templatesWsdl = file("generated/main/resources/com/glookast/api/templates/templates.wsdl")
+def templatesXjb = file("src/main/bindings/templates.xjb")
+
+task extractSchemas(type: Copy) {
+    from {
+        configurations.schemas.collect { zipTree(it) }
+    }
+    into generatedResourcesDir
+    exclude "META-INF/**"
+}
+
+task wsimport  {
+    inputs.file templatesWsdl
+    inputs.file templatesXjb
+    inputs.file generatedResourcesDir
+    outputs.dir generatedSrcDir
+    doLast{
+        ant {
+            sourceSets.main.output.classesDir.mkdirs()
+            generatedSrcDir.mkdirs()
+            taskdef(name: "wsimport",
+                classname: "com.sun.tools.ws.ant.WsImport",
+                classpath: configurations.jaxws.asPath)
+            wsimport(keep:true,
+                destdir: sourceSets.main.output.classesDir,
+                sourcedestdir: generatedSrcDir,
+                wsdl: templatesWsdl,
+                wsdlLocation: "/com/glookast/api/templates/templates.wsdl",
+                binding: templatesXjb,
+                xnocompile: true) {
+                xjcarg(value: "-Xvalue-constructor")
+            }
+        }
+    }
+}
+
+wsimport.dependsOn(extractSchemas)
+
+compileJava.dependsOn(wsimport)
+
+clean {
+    doLast {
+        if (generatedSrcDir.exists()) {
+            generatedSrcDir.listFiles().each { f -> delete f }
+        }
+        if (generatedResourcesDir.exists()) {
+            generatedResourcesDir.listFiles().each { f -> delete f }
+        }
+    }
+}
+
+task javadocJar(type: Jar) {
+    classifier = "javadoc"
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name "api-templates"
+                packaging "jar"
+                // optionally artifactId can be defined here
+                description "Generated artifacts used for interfacing with Glookast Products"
+                url "http://github.com/glookast/api-templates"
+
+                scm {
+                    connection "scm:git:git://github.com/glookast/api-templates.git"
+                    developerConnection "scm:git:ssh://github.com:glookast/api-templates.git"
+                    url "http://github.com/glookast/api-templates/tree/master"
+                }
+
+                licenses {
+                    license {
+                        name "The Apache License, Version 2.0"
+                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id "joostrovers"
+                        name "Joost Rovers"
+                        email "joost.rovers@glookast.com"
+                    }
+                }
+            }
+        }
+    }
+}
