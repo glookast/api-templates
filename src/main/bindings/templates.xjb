@@ -78,5 +78,8 @@
         <jaxb:bindings scd="~tmpl:XmlExportMetadataSystem">
             <jaxb:class ref="com.glookast.commons.templates.XmlExportMetadataSystem"/>
         </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:TestResultProperty">
+            <jaxb:class ref="com.glookast.commons.templates.TestResultProperty"/>
+        </jaxb:bindings>
     </jaxb:bindings>
 </jaxb:bindings>
