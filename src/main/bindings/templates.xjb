@@ -39,8 +39,8 @@
         <jaxb:bindings scd="~tmpl:AvidMediaNetworkStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidMediaNetworkStorageSystem"/>
         </jaxb:bindings>
-        <jaxb:bindings scd="~tmpl:AvidNexusStorageSystem">
-            <jaxb:class ref="com.glookast.commons.templates.AvidNexusStorageSystem"/>
+        <jaxb:bindings scd="~tmpl:AvidNexisStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidNexisStorageSystem"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:AvidOtherStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidOtherStorageSystem"/>
