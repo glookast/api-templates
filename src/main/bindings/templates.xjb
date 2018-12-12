@@ -25,7 +25,7 @@
             <jaxb:class ref="com.glookast.commons.base.Rational"/>
         </jaxb:bindings>
     </jaxb:bindings>
-    <jaxb:bindings scd="x-schema::tmpl" xmlns:tns="http://base.templates.glookast.com">
+    <jaxb:bindings scd="x-schema::tmpl" xmlns:tns="http://templates.commons.glookast.com">
         <jaxb:schemaBindings map="false"/>
         <jaxb:bindings scd="~tmpl:AudioFormat">
             <jaxb:class ref="com.glookast.commons.templates.AudioFormat"/>
@@ -51,6 +51,9 @@
         <jaxb:bindings scd="~tmpl:ContainerFormat">
             <jaxb:class ref="com.glookast.commons.templates.ContainerFormat"/>
         </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:FtpStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.FtpStorageSystem"/>
+        </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:GenericStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.GenericStorageSystem"/>
         </jaxb:bindings>
@@ -64,7 +67,7 @@
             <jaxb:class ref="com.glookast.commons.templates.StorageSystem"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:SystemType">
-            <jaxb:class ref="com.glookast.commons.templates.SystemType"/>
+            <jaxb:typesafeEnumClass ref="com.glookast.commons.templates.SystemType"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:Template">
             <jaxb:class ref="com.glookast.commons.templates.Template"/>
@@ -79,7 +82,7 @@
             <jaxb:class ref="com.glookast.commons.templates.XmlExportMetadataSystem"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:TestResultProperty">
-            <jaxb:class ref="com.glookast.commons.templates.TestResultProperty"/>
+            <jaxb:typesafeEnumClass ref="com.glookast.commons.templates.TestResultProperty"/>
         </jaxb:bindings>
     </jaxb:bindings>
 </jaxb:bindings>
