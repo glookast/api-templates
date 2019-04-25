@@ -33,8 +33,8 @@
         <jaxb:bindings scd="~tmpl:AvidAafExportMetadataSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidAafExportMetadataSystem"/>
         </jaxb:bindings>
-        <jaxb:bindings scd="~tmpl:AvidInterplayMetadataSystem">
-            <jaxb:class ref="com.glookast.commons.templates.AvidInterplayMetadataSystem"/>
+        <jaxb:bindings scd="~tmpl:AvidMamMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidMamMetadataSystem"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:AvidMediaNetworkStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidMediaNetworkStorageSystem"/>
@@ -44,6 +44,9 @@
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:AvidOtherStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidOtherStorageSystem"/>
+        </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:AvidPamMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.AvidPamMetadataSystem"/>
         </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:AvidStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.AvidStorageSystem"/>
