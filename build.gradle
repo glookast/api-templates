@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.api"
-version = "3.0.0.ARVATO-EDITMATE.7-SNAPSHOT"
+version = "3.0.0.ARVATO-EDITMATE.8-SNAPSHOT"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -37,8 +37,8 @@ configurations {
 dependencies {
     jaxws "com.sun.xml.ws:jaxws-tools:2.2.10"
     jaxws "org.jvnet.jaxb2_commons:jaxb2-value-constructor:3.0"
-    schemas "com.glookast.api:api-templates-schemas:3.0.0"
-    runtime "com.glookast.api:api-templates-schemas:3.0.0"
+    schemas "com.glookast.api:api-templates-schemas:3.0.0.ARVATO-EDITMATE.7-SNAPSHOT"
+    runtime "com.glookast.api:api-templates-schemas:3.0.0.ARVATO-EDITMATE.7-SNAPSHOT"
     compile "com.glookast.commons:commons-templates:3.0.0.ARVATO-EDITMATE.7-SNAPSHOT"
     compile "com.glookast.commons:commons-xml:1.0.0"
 }
