@@ -87,6 +87,9 @@
         <jaxb:bindings scd="~tmpl:VideoFormat">
             <jaxb:class ref="com.glookast.commons.templates.VideoFormat"/>
         </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:JsonExportMetadataSystem">
+            <jaxb:class ref="com.glookast.commons.templates.JsonExportMetadataSystem"/>
+        </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:XmlExportMetadataSystem">
             <jaxb:class ref="com.glookast.commons.templates.XmlExportMetadataSystem"/>
         </jaxb:bindings>
