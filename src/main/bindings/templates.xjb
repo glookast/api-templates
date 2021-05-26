@@ -66,6 +66,9 @@
         <jaxb:bindings scd="~tmpl:ArvatoEditMateGenericStorageSystem">
             <jaxb:class ref="com.glookast.commons.templates.ArvatoEditMateGenericStorageSystem"/>
         </jaxb:bindings>
+        <jaxb:bindings scd="~tmpl:EditShareFlowStorageSystem">
+            <jaxb:class ref="com.glookast.commons.templates.EditShareFlowStorageSystem"/>
+        </jaxb:bindings>
         <jaxb:bindings scd="~tmpl:MetadataSystem">
             <jaxb:class ref="com.glookast.commons.templates.MetadataSystem"/>
         </jaxb:bindings>
