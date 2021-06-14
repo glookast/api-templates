@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.api"
-version = "3.2.0-RC2-SNAPSHOT"
+version = "3.3.0"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -37,9 +37,9 @@ configurations {
 dependencies {
     jaxws "com.sun.xml.ws:jaxws-tools:2.2.10"
     jaxws "org.jvnet.jaxb2_commons:jaxb2-value-constructor:3.0"
-    schemas "com.glookast.api:api-templates-schemas:3.2.0-RC2-SNAPSHOT"
-    runtime "com.glookast.api:api-templates-schemas:3.2.0-RC2-SNAPSHOT"
-    compile "com.glookast.commons:commons-templates:3.3.0-RC6-SNAPSHOT"
+    schemas "com.glookast.api:api-templates-schemas:3.2.1"
+    runtime "com.glookast.api:api-templates-schemas:3.2.1"
+    compile "com.glookast.commons:commons-templates:3.3.0"
     compile "com.glookast.commons:commons-xml:1.0.0"
 }
 
